@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <style>
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            background-color: aqua;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px gainsboro;
+            margin-top: 1.5rem;
+        }
+    </style>
+  </head>
+  <body>
+    <main>
+        <div class="container">
+            <h1 data-testid="slackUserName">Dahrah</h1>
+            <img src="./Dahrah.jpeg" alt="dahrah" data-testid="slackDisplayImage" />
+            <h2 data-testid="currentDayOfTheWeek" id="day-of-the-week"></h2>
+            <h2 data-testid="currentUTCTime" id="utc-time"></h2>
+            <h2 data-testid="myTrack" id="my-track">Frontend</h2>
+            <h2 data-testid="githubURL" id="github-url"><a href="">Source Code</a></h2>
+          </div>
+    </main>
+  
+
+   <script>
+    const currentDay = document.querySelector('#day-of-the-week');
+    const currentUTCTime = document.querySelector('#utc-time');
+
+    function dayOfTheWeek() {
+        const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const currentDate  = new Date();
+        const indexOfDay = currentDate.getDay();
+        return weekDays[indexOfDay]
+    }
+
+    currentDay.textContent = "Today is " + dayOfTheWeek()
+
+    function utcTime() {
+        const currentDate  = new Date();
+        const utcInMilliseconds = currentDate.getTime();
+        return utcInMilliseconds
+    }
+
+    currentUTCTime.textContent = "The current UTC time in milliseconds is " + utcTime()
+
+   </script>
+  </body>
+</html>
